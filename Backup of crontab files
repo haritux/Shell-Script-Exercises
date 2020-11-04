@@ -1,0 +1,21 @@
+#!/bin/bash
+# Author: haritux.in
+echo Enter the destination directory for backup
+read DEST
+OUT=`hostname`_crons.`date +%d%m%Y-%H%M%S`
+mkdir -p $DEST/$OUT 2&> /dev/null
+cd $DEST/$OUT
+
+for i in `ls /var/spool/cron/crontabs/`  ### Debian, Ubuntu
+#for i in `ls /var/spool/cron/`  ### Red Hat, CentOS, Fedora
+   do 
+     grep $i /etc/passwd
+     if [ $? = 0 ]; then
+        {
+        crontab -u $i -l >> $i.cronlist.txt
+        }
+     fi
+   done
+cd ..
+tar -czf $OUT.tar.gz2 $OUT
+rm -rf $OUT
