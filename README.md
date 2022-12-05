@@ -4,6 +4,6 @@
 
 <h1>A collection of handy useful Shell Scripts</h1>
 <p>By Hareesh Harihar</p>
-<p>haritux.in</p>
-</body>
+  <a href="http://haritux.in">haritux.in</a>
+ </body>
 </html>
